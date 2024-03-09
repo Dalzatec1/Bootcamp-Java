@@ -32,3 +32,14 @@ WHERE
         AND m.title LIKE 'La Guerra de las Galaxias%'
     )
     AND a.id = am.actor_id;
+
+# Crear un listado a partir de la tabla de películas, mostrar un reporte de la cantidad de películas por nombre de género. 
+SELECT genres.name, COUNT(movies.id)
+FROM movies,genres
+WHERE movies.genre_id = genres.id
+GROUP BY genres.id;
+
+SELECT genres.name, COUNT(movies.id)
+FROM movies
+INNER JOIN genres ON movies.genre_id = genres.id
+GROUP BY genres.id;
